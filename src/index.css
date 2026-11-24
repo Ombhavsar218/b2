@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+@theme {
+  --color-midnight: #0B1026;
+  --color-navy: #111831;
+  --color-lavender: #B9A9FF;
+  --color-pale-blue: #B9D9FF;
+  --color-soft-white: #F5F4FF;
+  --color-muted-gold: #E8D5A5;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+body {
+  background-color: #0B1026;
+  color: #F5F4FF;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0B1026;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(185, 169, 255, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(185, 169, 255, 0.4);
+}
+
+/* Celestial glow & glass utility classes */
+.celestial-glass {
+  background: rgba(17, 24, 49, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(185, 169, 255, 0.12);
+}
+
+.celestial-glass-light {
+  background: rgba(245, 244, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(232, 213, 165, 0.15);
+}
+
+.celestial-card-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.celestial-card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(185, 169, 255, 0.35);
+  box-shadow: 0 16px 32px -8px rgba(11, 16, 38, 0.8), 0 0 20px rgba(185, 169, 255, 0.15);
+}
+
+.gold-glow {
+  box-shadow: 0 0 25px rgba(232, 213, 165, 0.2);
+}
+
+.lavender-glow {
+  box-shadow: 0 0 30px rgba(185, 169, 255, 0.2);
+}
+
+/* Subtle twinkling animation */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.25; transform: scale(0.9); }
+  50% { opacity: 0.95; transform: scale(1.1); }
+}
+
+.animate-twinkle {
+  animation: twinkle 4s ease-in-out infinite;
+}
+
+.animate-twinkle-delayed {
+  animation: twinkle 5s ease-in-out 2s infinite;
+}
+
+.animate-twinkle-slow {
+  animation: twinkle 7s ease-in-out 1s infinite;
+}
+
+/* Float animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-8px) rotate(1deg); }
+}
+
+.animate-float {
+  animation: float 8s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float 9s ease-in-out 3s infinite;
+}
