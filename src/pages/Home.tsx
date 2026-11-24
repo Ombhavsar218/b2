@@ -4,9 +4,11 @@ import { motion } from 'framer-motion';
 import { Sparkles, ArrowRight } from 'lucide-react';
 import { siteData } from '../data/siteData';
 import { StarField } from '../components/StarField';
+import { useMusic } from '../context/MusicContext';
 
 export const Home: React.FC = () => {
   const { home, brotherName } = siteData;
+  const { startPlay } = useMusic();
 
   return (
     <div className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden select-none">
@@ -84,6 +86,7 @@ export const Home: React.FC = () => {
         >
           <NavLink
             to="/message"
+            onClick={startPlay}
             className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-full bg-gradient-to-r from-[#B9A9FF]/20 via-[#B9D9FF]/20 to-[#E8D5A5]/20 hover:from-[#B9A9FF]/30 hover:to-[#E8D5A5]/30 text-white font-medium text-xs sm:text-sm tracking-[0.25em] uppercase border border-[#B9A9FF]/40 hover:border-[#E8D5A5]/60 transition-all duration-300 shadow-xl group cursor-pointer"
           >
             <span>{home.buttonText}</span>

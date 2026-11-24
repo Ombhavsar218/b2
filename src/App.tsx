@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 import { LightboxProvider } from './context/LightboxContext';
+import { MusicProvider } from './context/MusicContext';
 import { Lightbox } from './components/Lightbox';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -101,18 +102,20 @@ const AnimatedRoutes: React.FC = () => {
 export function App() {
   return (
     <LightboxProvider>
-      <Router>
-        <ScrollToTop />
-        <div className="min-h-screen flex flex-col bg-[#0B1026] text-[#F5F4FF] selection:bg-[#B9A9FF]/30 selection:text-white">
-          <Navbar />
-          <main className="flex-1">
-            <AnimatedRoutes />
-          </main>
-          <Footer />
-          <AudioToggle />
-          <Lightbox />
-        </div>
-      </Router>
+      <MusicProvider>
+        <Router>
+          <ScrollToTop />
+          <div className="min-h-screen flex flex-col bg-[#0B1026] text-[#F5F4FF] selection:bg-[#B9A9FF]/30 selection:text-white">
+            <Navbar />
+            <main className="flex-1">
+              <AnimatedRoutes />
+            </main>
+            <Footer />
+            <AudioToggle />
+            <Lightbox />
+          </div>
+        </Router>
+      </MusicProvider>
     </LightboxProvider>
   );
 }
